@@ -1,4 +1,4 @@
-# Basic Computer Graphics Homework Projects
+# Basic Computer Graphics Homework Projects with Java OpenGL (JOGL)
 Includes
 - Arrow Shooter Game
 - Ping Pong

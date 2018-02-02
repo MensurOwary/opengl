@@ -9,20 +9,19 @@ package com.owary.arrowshooter;
  *
  * @author OwaryLtd
  */
-import java.awt.Dimension;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.util.LinkedList;
-import java.util.List;
-import javax.swing.JFrame;
+
+    import javax.swing.*;
+    import java.awt.*;
+    import java.awt.event.KeyEvent;
+    import java.awt.event.KeyListener;
+    import java.awt.event.WindowAdapter;
+    import java.awt.event.WindowEvent;
+    import java.util.LinkedList;
+    import java.util.List;
 
 public class Game extends JFrame /*implements KeyListener*/ {
 
-    private static final String WINDOW_TITLE = "3D Shapes in Full Screen Mode";
+    private static final String WINDOW_TITLE = "Arrow Shooter";
     private static int windowWidth = 1000;  // size in non-full-screen mode
     private static int windowHeight = 480;
 
@@ -53,7 +52,7 @@ public class Game extends JFrame /*implements KeyListener*/ {
                 new Thread() {
                     @Override
                     public void run() {
-                        joglMain.animator.stop(); // stop the animator loop
+                        Container.animator.stop(); // stop the animator loop
                         System.exit(0);
                     }
                 }.start();
@@ -66,8 +65,9 @@ public class Game extends JFrame /*implements KeyListener*/ {
         this.requestFocus();
 
         this.setTitle(WINDOW_TITLE);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
-        joglMain.animator.start(); // start the animation loop
+        Container.animator.start(); // start the animation loop
     }
 
     public static void main(String[] args) {
@@ -102,7 +102,7 @@ public class Game extends JFrame /*implements KeyListener*/ {
                             device.setFullScreenWindow(Game.this);
                         }
                     } else {
-                        Game.this.setUndecorated(false);  // Put the title and border back
+                        Game.this.setUndecorated(false);  // Put the title and fillobjects back
                         device.setFullScreenWindow(null); // Windowed mode
                         Game.this.setSize(windowWidth, windowHeight);
                         Game.this.setResizable(true);
@@ -117,7 +117,7 @@ public class Game extends JFrame /*implements KeyListener*/ {
                     new Thread() {
                         @Override
                         public void run() {
-                            joglMain.animator.stop(); // stop the animator loop
+                            Container.animator.stop(); // stop the animator loop
                             System.exit(0);
                         }
                     }.start();

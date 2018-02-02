@@ -44,8 +44,8 @@ public class Circle {
         double sum = term1+term2;
         return sum<=Math.pow(radius,2);
     }
-    
-    public boolean isLineCrossesCircle(Point lead, Point start){
+
+    public boolean doesLineCrossCircle(Point lead, Point start) {
         // form the line's equation
         // slope
         double slope = (lead.getY()-start.getY())/(lead.getX()-start.getX());
